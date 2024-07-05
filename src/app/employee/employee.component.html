@@ -1,0 +1,41 @@
+<h1 class="gradient-header">HR Management Portal</h1>
+
+<div class="container">
+  <!-- Existing login and signup forms -->
+  <!-- Employee creation form -->
+  <div class="employee-form form">
+    <header>Create Employee</header>
+    <form [formGroup]="employeeForm">
+      <input type="text" formControlName="name" placeholder="Name" />
+      <input type="text" formControlName="email" placeholder="Email" />
+      <input
+        type="text"
+        formControlName="phoneNumber"
+        placeholder="Phone Number"
+      />
+      <input type="text" formControlName="address" placeholder="Address" />
+      <input
+        type="text"
+        formControlName="dateOfBirth"
+        placeholder="Date of Birth (YYYY-MM-DD)"
+      />
+      <input
+        type="text"
+        formControlName="hireDate"
+        placeholder="Hire Date (YYYY-MM-DD)"
+      />
+      <input type="text" formControlName="position" placeholder="Position" />
+      <input
+        type="text"
+        formControlName="departmentId"
+        placeholder="Department ID"
+      />
+      <input
+        type="button"
+        class="button"
+        value="Create Employee"
+        (click)="submitEmployee()"
+      />
+    </form>
+  </div>
+</div>

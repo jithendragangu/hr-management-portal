@@ -1,0 +1,151 @@
+<div>
+  <span class="user">Hi {{ employee.name }}</span>
+  <button mat-raised-button class="logout" (click)="logout()">Logout</button>
+</div>
+
+<div class="button-container" *ngIf="isAdmin">
+  <button
+    class="button"
+    mat-stroked-button
+    (click)="createOrder = true; trackOrder = false"
+  >
+    All Employees
+  </button>
+  <button
+    class="button"
+    mat-stroked-button
+    (click)="createOrder = false; trackOrder = true"
+  >
+    All Projects
+  </button>
+</div>
+
+<div class="button-container" *ngIf="!isAdmin">
+  <button
+    class="button"
+    mat-stroked-button
+    (click)="createOrder = true; trackOrder = false"
+  >
+    My Details
+  </button>
+  <button
+    class="button"
+    mat-stroked-button
+    (click)="createOrder = false; trackOrder = true"
+  >
+    My Projects
+  </button>
+</div>
+
+<div *ngIf="createOrder">
+  <form class="employee-form" [formGroup]="employeeForm" *ngIf="!isAdmin">
+    <mat-form-field class="form-width">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" placeholder="Enter name" />
+    </mat-form-field>
+    <mat-form-field class="form-width">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" placeholder="Enter email" />
+    </mat-form-field>
+    <mat-form-field class="form-width">
+      <mat-label>Phone Number</mat-label>
+      <input
+        matInput
+        formControlName="phoneNumber"
+        placeholder="Enter phone number"
+      />
+    </mat-form-field>
+    <mat-form-field class="form-width">
+      <mat-label>Address</mat-label>
+      <textarea
+        matInput
+        formControlName="address"
+        placeholder="Enter address"
+      ></textarea>
+    </mat-form-field>
+    <mat-form-field class="form-width">
+      <mat-label>Date of Birth</mat-label>
+      <input
+        matInput
+        formControlName="dateOfBirth"
+        type="date"
+        placeholder="Enter date of birth"
+      />
+    </mat-form-field>
+    <mat-form-field class="form-width">
+      <mat-label>Hire Date</mat-label>
+      <input
+        matInput
+        formControlName="hireDate"
+        type="date"
+        placeholder="Enter hire date"
+      />
+    </mat-form-field>
+    <mat-form-field class="form-width">
+      <mat-label>Position</mat-label>
+      <input matInput formControlName="position" placeholder="Enter position" />
+    </mat-form-field>
+    <mat-form-field class="form-width">
+      <mat-label>Department ID</mat-label>
+      <input
+        matInput
+        formControlName="departmentId"
+        type="number"
+        placeholder="Enter department ID"
+      />
+    </mat-form-field>
+  </form>
+  <div *ngIf="isAdmin">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone Number</th>
+          <th>Address</th>
+          <th>Date of Birth</th>
+          <th>Hire Date</th>
+          <th>Position</th>
+          <th>Department ID</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let emp of employeeList">
+          <td>{{ emp.id }}</td>
+          <td>{{ emp.name }}</td>
+          <td>{{ emp.email }}</td>
+          <td>{{ emp.phoneNumber }}</td>
+          <td>{{ emp.address }}</td>
+          <td>{{ emp.dateOfBirth | date }}</td>
+          <td>{{ emp.hireDate | date }}</td>
+          <td>{{ emp.position }}</td>
+          <td>{{ emp.departmentId }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div *ngIf="trackOrder">
+  <table>
+    <thead>
+      <tr>
+        <th>Project ID</th>
+        <th>Project Name</th>
+        <th>Description</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let project of projectList">
+        <td>{{ project.id }}</td>
+        <td>{{ project.name }}</td>
+        <td>{{ project.description }}</td>
+        <td>{{ project.startDate | date }}</td>
+        <td>{{ project.endDate | date }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,48 @@
+.button-container {
+    margin: 20px;
+}
+
+.button {
+    margin-right: 15px;
+}
+
+.user {
+    margin: 20px;
+}
+
+.orderFields {
+    margin-bottom: 20px;
+}
+
+.form-width {
+    width: 60%;
+}
+
+.order-form {
+    margin: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid #000; /* Add a border to the table */
+}
+
+th, td {
+    border: 1px solid #000; /* Add borders to table cells */
+    padding: 8px;
+}
+
+th {
+    background-color: #f4f4f4;
+    text-align: left;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9; /* Add alternating row colors for better readability */
+}
+
+.logout {
+    color: red;
+    float: right;
+}
